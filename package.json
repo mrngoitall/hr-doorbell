@@ -1,0 +1,9 @@
+{
+  "name": "hr-doorbell",
+  "description": "Hack Reactor Doorbell",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "imap": "0.8.2"
+  }
+}
