@@ -38,7 +38,7 @@ var processMail = function() {
         });
         stream.once('end', function() {
           imap.seq.addFlags(seqno,'DELETED', function(err) {
-            console.log('addFlags err: ',err);
+            //console.log('addFlags err: ',err);
           });
           console.log(prefix + 'Parsed header: %s', inspect(Imap.parseHeader(buffer)));
           var studentName = nameRegex.exec(Imap.parseHeader(buffer).from[0]) || [];
@@ -62,15 +62,15 @@ var processMail = function() {
       console.log('Fetch error: ' + err);
     });
     f.once('end', function() {
-      console.log('Done fetching all messages!');
+      //console.log('Done fetching all messages!');
       //imap.end();
     });
   });
 };
 
-imap.once('ready', processMail);
-
-imap.once('mail',processMail);
+imap.once('ready', function() {
+  setInterval(processMail,5000);
+});
 
 imap.once('error', function(err) {
   console.log(err);
