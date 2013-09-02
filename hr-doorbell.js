@@ -4,7 +4,7 @@ var exec = require('child_process').exec,
     child;
 
 var imap = new Imap({
-  user: 'hrdoorbell@gmail.com',
+  user: '',
   password: '',
   host: 'imap.gmail.com',
   port: 993,
